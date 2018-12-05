@@ -9,42 +9,51 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <link rel="stylesheet" href="https://use.typekit.net/awe5gli.css">
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+    <div class="site-wrapper">
+      <header class="site-header row">
+        <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a> <span class="blinking-cursor"></span></h1>
 
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
+        <nav class="site-header__nav">
+          <a href="https://www.reddit.com/r/dailyprogrammer/" target="_blank" rel="noreferrer"><i class="fab fa-reddit-alien"></i></a>
+          <a href="https://github.com/deandrecrayton/deandrecrayton.github.io" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
+        </nav>
+      </header>
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
+      <main class="site-main row">
+        {{ content }}
+      </main>
+    </div>
+
+    <footer class="site-footer clearfix">
+      <div class="row">
+        <section class="site-footer__about">
+          Hi! Welcome to r/dailyprogammer, my collection of solutions to a couple of challenges from <a href="https://www.reddit.com/r/dailyprogrammer/" class="site__link" target="_blank" rel="noreferrer">r/dailyprogrammer</a>. As of now they are only in JavaScript, but I will be posting more solutions in differnt languages down the road. All of the work presented is open source, enjoy! <span role="image" aria-label="sparkle">✨</span>
+        </section>
+
+        <section class="site-footer__copyright">
+          &copy; <span class="current-year"></span> Deandre Crayton
+        </section>
       </div>
-    </div>
+    </footer>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="{{ site.baseurl }}/js/footer-reveal.min.js"></script>
+    <script>
+      $(function(){
+        $('.site-footer').footerReveal({ shadow: false });
+        $('.current-year').text(new Date().getFullYear());
+      });
+    </script>
 
     {% include analytics.html %}
   </body>

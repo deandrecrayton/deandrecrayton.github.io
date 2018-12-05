@@ -2,15 +2,23 @@
 layout: default
 ---
 
-<article class="post">
-  <h1>{{ page.title }}</h1>
+<article class="post clearfix">
+  <header class="post__header post__header--post">
+    <time class="post__date">{{ page.date | date: "%b %e, %Y" }}</time>
 
-  <div class="entry">
+    <h2 class="post__title post__title--post">
+      <a href="{{ page.source }}" target="_blank" rel="noreferrer">
+        {{ page.title }}
+  
+        {% if page.level %}
+          <span class="post__level post__level--{{ page.level }}"></span>
+        {% endif %}
+      </a>
+    </h2>
+  </header>
+
+  <div class="post__content">
     {{ content }}
-  </div>
-
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
 
   {% include disqus.html %}

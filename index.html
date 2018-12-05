@@ -2,17 +2,20 @@
 layout: default
 ---
 
-<div class="posts">
+<ul class="posts">
   {% for post in site.posts %}
-    <article class="post">
+    <li class="post__header">
+      <time class="post__date">{{ post.date | date: "%b %e, %Y" }}</time>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+      <h2 class="post__title">
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          {{ post.title }}
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
+          {% if post.level %}
+            <span class="post__level post__level--home post__level--{{ post.level }}"></span>
+          {% endif %}
+        </a>
+      </h2>
+    </li>
   {% endfor %}
-</div>
+</ul>
